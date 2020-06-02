@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">jfood-android</string>
+    <string name="food_name">Food Name:</string>
+    <string name="food_category">Food Category:</string>
+    <string name="food_price">Food Price:</string>
+    <string name="payment_method">Payment Method:</string>
+    <string name="cash">Via CASH</string>
+    <string name="cashless">Via CASHLESS</string>
+    <string name="total_price">Total Price:</string>
+    <string name="button_count">Count</string>
+    <string name="button_order">Order</string>
+
 </resources>

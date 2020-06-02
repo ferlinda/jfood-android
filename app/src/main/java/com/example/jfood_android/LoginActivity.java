@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
         final EditText uEmail = findViewById(R.id.loginEmail);
         final EditText uPassword = findViewById(R.id.loginPassword);
@@ -44,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Login Successful",
                                         Toast.LENGTH_LONG).show();
                                 Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                                mainIntent.putExtra("currentUserId", jsonObject.getInt("id"));
                                 startActivity(mainIntent);
                             }
                         } catch (JSONException e) {

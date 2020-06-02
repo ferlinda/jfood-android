@@ -3,8 +3,11 @@ package com.example.jfood_android;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
@@ -22,17 +25,66 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
+    Button pesanan;
     private ArrayList<Seller> listSeller = new ArrayList<>();
     private ArrayList<Food> foodIdList = new ArrayList<>();
     private HashMap<Seller, ArrayList<Food>> childMapping = new HashMap<>();
 
+    private static int currentUserId;
+    private static String currentUserName;
+
+    public static int getCustomerId() {
+        return currentUserId;
+    }
+
+    public static String getCustomerName() {
+        return currentUserName;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null){
+            currentUserId = extras.getInt("currentUserId");
+        }
+
+        expListView = findViewById(R.id.lvExp);
+        pesanan = findViewById(R.id.pesanan);
 
         refreshList();
+
+        pesanan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,SelesaiPesananActivity.class);
+                intent.putExtra("currentUserId",currentUserId);
+                startActivity(intent);
+            }
+        });
+
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+                Intent intent = new Intent(MainActivity.this, BuatPesananActivity.class);
+                int id_food = childMapping.get(listSeller.get(i)).get(i1).getId();
+                String foodName = childMapping.get(listSeller.get(i)).get(i1).getName();
+                String foodCategory = childMapping.get(listSeller.get(i)).get(i1).getCategory();
+                int foodPrice = childMapping.get(listSeller.get(i)).get(i1).getPrice();
+
+                intent.putExtra("food_id",id_food);
+                intent.putExtra("food_name",foodName);
+                intent.putExtra("food_category",foodCategory);
+                intent.putExtra("food_price",foodPrice);
+                intent.putExtra("currentUserId", currentUserId);
+
+                startActivity(intent);
+                return true;
+            }
+        });
     }
 
     protected void refreshList() {

@@ -20,6 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_register);
         final EditText uName = findViewById(R.id.registerName);
         final EditText uEmail = findViewById(R.id.registerEmail);
