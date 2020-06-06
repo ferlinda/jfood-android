@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".SelesaiPesananActivity">
+
+    <LinearLayout
+        android:id="@+id/selesai_pesanan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Order:"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/static_id_invoice"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invoice ID:"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/id_invoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID invoice"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/static_nama_makanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Food:"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/nama_makanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama Makanan"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/static_tanggal_pesan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Order timestamp:"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/tanggal_pesan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Pesan"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/static_total_biaya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price:"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/total_biaya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Biaya"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/static_status_invoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invoice Status:"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/status_invoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status Invoice"
+            android:textSize="20dp"/>
+
+        <Button
+            android:id="@+id/selesai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_rounded"
+            android:textColor="#ffffff"
+            android:layout_marginTop="30dp"
+            android:text="Finish"/>
+
+        <Button
+            android:id="@+id/batal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_rounded"
+            android:textColor="#ffffff"
+            android:layout_marginTop="10dp"
+            android:text="Cancel"/>
+
+        <Button
+            android:id="@+id/back_home"
+            android:background="@drawable/button_rounded"
+            android:textColor="#ffffff"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Home"/>
+
+    </LinearLayout>
+
+</LinearLayout>
